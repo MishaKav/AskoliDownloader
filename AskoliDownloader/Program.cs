@@ -22,9 +22,18 @@ namespace AskoliDownloader
         {
             Console.Title = "Askoli Downloader by Misha Kav";
             Console.OutputEncoding = new UTF8Encoding();  // unicode the console
+            string url;
 
-            Console.WriteLine("Please enter valid url of course, from Askoli site.");
-            var url = Console.ReadLine(); // Get string from user
+            if (args.Length > 0 && args[0].IsNotNullOrEmpty())
+            {
+                url = args[0];
+                Console.WriteLine($"Your urls is: {url}");
+            }
+            else
+            {
+                Console.WriteLine("Please enter valid url of course, from Askoli site.");
+                url = Console.ReadLine(); // Get string from user
+            }
             if (Utils.IsValidUrl(url)) // Check string
             {
                 var course = GetCourseInfoByUrl(url);
