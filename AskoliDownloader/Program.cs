@@ -155,6 +155,7 @@ namespace AskoliDownloader
             Utils.WriteStatusLog("_________________Finish_________________");
             var totalSize = new DirectoryInfo(coursePath).FolderSize().ToReadableFileSize();
             Utils.WriteStatusLog($"Size: {totalSize} |  Videos: {course.SectionList.Sum(s => s.ChapterList.Count)}");
+            Utils.WriteStatusLog("You can close the program.");
 
             Utils.CreateUrlShortcut(coursePath, course.Title, course.Url);
             Process.Start(new ProcessStartInfo { FileName = coursePath, UseShellExecute = true, Verb = "open" });
